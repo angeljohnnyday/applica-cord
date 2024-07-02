@@ -56,6 +56,7 @@ export default function AppProvider({ children }: AppProviderProps) {
       if (!!search) {
         try {
           const data = await searchMovie(search, page);
+          // console.info(JSON.stringify(data));
           setMovies(data);
         } catch {
           setError(true);

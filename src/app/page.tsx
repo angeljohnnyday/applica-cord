@@ -17,6 +17,7 @@ export default function Home() {
           <TextField
             label="Search movie"
             value={search}
+            inputProps={{ 'data-testid': 'search-input' }}
             onChange={({ target: { value } }) => handleSearch(value)} 
           />
         </Col>
@@ -30,6 +31,7 @@ export default function Home() {
               variant="outlined"
               page={page}
               onChange={(_, value) => handlePage(value)}
+              data-testid="pagination"
               sx={{
                 '.MuiPagination-ul': {
                   justifyContent: 'center'
@@ -41,6 +43,7 @@ export default function Home() {
         {!loading && movies?.results.map(({ id, title, poster_path, release_date, vote_average }) => (
           <Col key={id} xs={12} md={4}>
             <Card 
+              id={id}
               title={title} 
               path={poster_path}
               release_date={release_date}
@@ -53,15 +56,16 @@ export default function Home() {
             <Typography 
               fontSize="3rem" 
               fontWeight={600}
+              data-testid="welcome-text"
               sx={{ 
                 color: '#2E4053',
               }} 
             >
               Movies, Series & Cinema with
+              {' '}
               <Link 
                 href={constants.tmdbUrl} 
-                target="_blank" 
-                style={{ marginLeft: '0.8rem' }}
+                target="_blank"
               >
                 TMDB
               </Link>

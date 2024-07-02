@@ -4,15 +4,17 @@ import { Box, Rating, Typography } from '@mui/material'
 import { formattedDate, getImg } from '@/utils/functions';
 
 interface CardProps {
+  id: number;
   path: string | null;
   title: string;
   release_date: string;
   vote_average: number;
 }
 
-export default function Card({ path, title, release_date, vote_average }: CardProps) {
+export default function Card({ id, path, title, release_date, vote_average }: CardProps) {
   return (
     <Box
+      data-testid="movie-card"
       borderRadius="24px"
       p="1.2rem"
       position="relative"
@@ -68,6 +70,7 @@ export default function Card({ path, title, release_date, vote_average }: CardPr
           value={vote_average} 
           max={10} 
           precision={0.5}
+          data-testid={`rating-${id}`}
           sx={{ 
             '.MuiRating-iconEmpty': {
               color: 'white !important',
