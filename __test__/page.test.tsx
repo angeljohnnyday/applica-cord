@@ -94,6 +94,6 @@ describe('index - page', () => {
     fireEvent.click(screen.getByRole('button', { name: /go to page 1/i }));
 
     // Render page 1 again
-    assertCard(movieMock, 2);
+    await assertCard(movieMock, 2);
   });
 })
