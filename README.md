@@ -5,8 +5,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+delete node_modules
+
 npm i - install dependencies
 npm run dev - to run the application locally
+npm run test - to run the unit test
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
