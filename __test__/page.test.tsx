@@ -67,7 +67,7 @@ describe('index - page', () => {
 
   it('calls searchMovie on search input change - page 2', async () => {
     renderPage();
-    
+
     const movieMock = { ...movieMock1, total_pages: 2 };
     mockedSearchMovie.mockResolvedValue(movieMock);
 
@@ -89,5 +89,11 @@ describe('index - page', () => {
 
     // Render page 2
     await assertCard(movieMock2, 2);
+
+    // going back to page 1
+    fireEvent.click(screen.getByRole('button', { name: /go to page 1/i }));
+
+    // Render page 1 again
+    assertCard(movieMock, 2);
   });
 })
